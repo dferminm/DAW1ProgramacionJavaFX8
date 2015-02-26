@@ -4,10 +4,15 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeLineCap;
+import javafx.scene.text.Font;
 
 
 public class Juego extends Application {
@@ -62,6 +67,19 @@ public class Juego extends Application {
         linea4.setStrokeLineCap(StrokeLineCap.BUTT);
         
         root.getChildren().add(linea4);
+        
+        // Creamos los simbolos de cada jugador
+        
+        Circle j1 = new Circle(50,50,50);
+        j1.setStroke(Color.BLACK);
+        
+        Circle j2 = new Circle(50,50,50);
+        j2.setStroke(Color.WHITE);
+        
+        // Al hacer click en una casilla, se dibuje el simbolo de cada jugador
+        
+        tablero.addEventHandler(MouseEvent.MOUSE_CLICKED, 
+        		(MouseEvent e) -> root.getChildren().add(j1));
         
         primaryStage.setScene(scene);
         primaryStage.show();
